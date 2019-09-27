@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart'
 import 'package:flutter/material.dart';
 import 'package:example_flutter/src/pages/login.dart';
 import 'package:example_flutter/src/pages/home_page.dart';
+import 'package:example_flutter/src/pages/pelicula_detalle_page.dart';
 
 void main() {
   debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
@@ -13,13 +14,15 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'MyMovieApp Desktop',
       initialRoute: 'login',
       routes: {
-        'login':(BuildContext context)=>LoginPage(),
-        'home'     : (BuildContext context) => HomePage()
+        'login'   : (BuildContext context)=>LoginPage(),
+        'home'    : (BuildContext context) => HomePage(),
+        'detalle' : ( BuildContext context) => PeliculaDetalle()
       },
       theme: ThemeData(
         primaryColor: Colors.deepOrangeAccent

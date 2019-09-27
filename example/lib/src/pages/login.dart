@@ -81,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
             children: <Widget>[
               Icon( Icons.account_circle, color: Colors.white, size: 100.0 ),
               SizedBox( height: 10.0, width: double.infinity ),
-              Text('My Movie App', style: TextStyle( color: Colors.white, fontSize: 25.0 ))
+              Text('MyMovie Desktop', style: TextStyle( color: Colors.white, fontSize: 25.0 ))
             ],
           ),
         )
@@ -98,13 +98,13 @@ class _LoginPageState extends State<LoginPage> {
         children: <Widget>[
           SafeArea(
             child: Container(
-              height: 180.0,
+              height: 200.0,
             ),
           ),
           Container(
             width: size.width * 0.85,
-            margin: EdgeInsets.symmetric(vertical: 30.0),
-            padding: EdgeInsets.symmetric( vertical: 50.0),
+            margin: EdgeInsets.symmetric(vertical: 25.0),
+            padding: EdgeInsets.symmetric( vertical: 40.0),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(5.0),
