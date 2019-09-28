@@ -1,3 +1,4 @@
+import 'package:example_flutter/src/pages/inicio.dart';
 import 'package:flutter/foundation.dart'
     show debugDefaultTargetPlatformOverride;
 import 'package:flutter/material.dart';
@@ -18,10 +19,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'MyMovieApp Desktop',
-      initialRoute: 'login',
+      initialRoute: 'inicio',
       routes: {
         'login'   : (BuildContext context)=>LoginPage(),
         'home'    : (BuildContext context) => HomePage(),
+        'inicio'   : (BuildContext context) => InicioPage(),
         'detalle' : ( BuildContext context) => PeliculaDetalle()
       },
       theme: ThemeData(
