@@ -15,8 +15,8 @@ class CardSwiper extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(top: 10.0),
       child: Swiper(
-        itemWidth: _screenSize.width * 0.7,
-        itemHeight: _screenSize.height * 0.5,
+        itemWidth: _screenSize.width * 0.2,
+        itemHeight: _screenSize.height * 0.4,
         layout: SwiperLayout.STACK,
         //El item builder tiene el index porque es como un foreach
         itemBuilder: (BuildContext context,int index){

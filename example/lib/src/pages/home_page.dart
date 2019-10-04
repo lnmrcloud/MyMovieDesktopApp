@@ -40,6 +40,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
+
   Widget _swiperTarjetas(){
     return FutureBuilder(
       future: peliculasProvider.getEnCines(),
