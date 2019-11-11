@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:example_flutter/src/models/actores_model.dart';
 import 'package:example_flutter/src/models/pelicula_model.dart';
 import 'package:example_flutter/src/providers/peliculas_provider.dart';
+import 'package:example_flutter/src/pages/Imagen_detalle.dart';
 
 class PeliculaDetalle extends StatelessWidget {
 
@@ -20,7 +21,8 @@ class PeliculaDetalle extends StatelessWidget {
                 SizedBox(height: 10.0,),
                 _posterTitulo(pelicula, context),
                 _descripcion(pelicula),
-                _crearCasting(pelicula)
+                _crearCasting(pelicula),
+                _verImagen(context, pelicula)
               ]
             ),
           )
@@ -157,5 +159,43 @@ class PeliculaDetalle extends StatelessWidget {
       ),
     );
   }
+
+  Widget _verImagen(BuildContext context, Pelicula pelicula){
+    return Container(
+      child: ListTile(
+            title: MaterialButton(
+                onPressed: () {
+                  Navigator.push(
+                    // _posterTitulo(pelicula, context)
+                      context, MaterialPageRoute(builder:
+                      //(context) => Imagen_detalle(pelicula.originalTitle.toString().replaceAll(':','').split(' ').elementAt(0).toString())));
+                      (context) => Imagen_detalle(limpiarCadena(pelicula))));
+                },
+                child: Text(
+                  "Ver Imagenes",
+                  style: TextStyle(color: Colors.white),
+                ),
+                height: 40.0,
+                color: Colors.redAccent,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                )),
+    )
+    );
+  }
+
+String limpiarCadena(Pelicula pelicula){
+  
+  // tratamiento de titulo por simbolos -> ':', '...' '.' etc
+  String titulo = pelicula.originalTitle.toString();
+  if(titulo.contains(':')){
+    titulo = titulo.replaceAll(':','').split(' ').elementAt(0).toString();
+  }else{
+    
+  }
+  
+  return titulo;
+
+}
   
 }
