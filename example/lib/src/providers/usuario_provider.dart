@@ -28,6 +28,39 @@ class UsuarioProvider{
             : {'ok': false, 'message': decodedResp['error']['message']};
   }
 
+  Future<Map<String,dynamic>> actualizar(String nombre, String apellido, String id) async{
+    //EL BODY PARA LA PETICION POST Y CREAR UN NUEVO PERFIL CON UN ID YA PROPORCIONADO
+    final nuevosdatos = '{"fields": { "apellido":{"stringValue":'+'"'+apellido+'"'+'},"nombre":{"stringValue":'+'"'+nombre+'"'+'} }}';
+
+    print(nuevosdatos);
+
+    final resp = await http.patch(
+      'https://firestore.googleapis.com/v1/projects/prueba-b2fd7/databases/(default)/documents/perfiles/'+id+'?updateMask.fieldPaths=nombre&updateMask.fieldPaths=apellido',
+      body: nuevosdatos
+    );
+
+    Map<String, dynamic> decodedResp = json.decode(resp.body);
+
+    return decodedResp.containsKey('idToken')
+            ? {'ok': true, 'message': 'Cuenta actualizada correctamente'}
+            : {'ok': false, 'message': decodedResp['error']['message']};
+  }
+
+
+  Future<Map> obtenerdatosUsuario(String id) async{
+
+    final resp = await http.get(
+      'https://firestore.googleapis.com/v1/projects/prueba-b2fd7/databases/(default)/documents/perfiles/'+id+''
+    );
+
+    Map<String, dynamic> decodedResp = json.decode(resp.body);
+
+    print(decodedResp);
+
+    return decodedResp;
+  }
+
+
   Future<Map<String,dynamic>> login(String email, String password) async{
     final authData = {
       'email'             : email,
@@ -39,8 +72,6 @@ class UsuarioProvider{
       'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=$_firebaseToken',
       body: json.encode(authData)
     );
-
-   
 
     Map<String, dynamic> decodedResp = json.decode(resp.body);
     final id= decodedResp['localId'];

@@ -8,12 +8,14 @@ class HomePage extends StatelessWidget {
 
   final peliculasProvider = new PeliculasProvider();
 
+   String _idviajero='';
+
   @override
   Widget build(BuildContext context) {
 
-    final String _id= ModalRoute.of(context).settings.arguments ?? '';
+    _idviajero= ModalRoute.of(context).settings.arguments ?? '';
 
-    print("ESTOY EN HOME CON: "+_id);
+    //print("ESTOY EN HOME CON: "+_id);
 
     peliculasProvider.getPolulares();
 
@@ -36,8 +38,12 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            _swiperTarjetas(),
-            _footer(context)
+            Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              _perfil(context),
+              _footer(context)
+            ],),
+            _swiperTarjetas()
           ],
         ),
       ),
@@ -62,6 +68,19 @@ class HomePage extends StatelessWidget {
           );
         }
       },
+    );
+  }
+
+  Widget _perfil(BuildContext context){
+    return Container(
+        child: FlatButton.icon(
+          color: Colors.red,
+          icon: Icon(Icons.portrait), //`Icon` to display
+          label: Text('Ver Perfil'), //`Text` to display
+          onPressed: () {
+           Navigator.pushNamed(context, 'perfil',arguments: _idviajero);
+          },
+        ),
     );
   }
 

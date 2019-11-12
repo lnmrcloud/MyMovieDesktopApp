@@ -194,8 +194,6 @@ class _LoginPageState extends State<LoginPage> {
     });
     Map respuesta = await _usuarioProvider.login(_email, _password);
     
-    
-
     final _id= respuesta['id'];
 
     //print(_id);
