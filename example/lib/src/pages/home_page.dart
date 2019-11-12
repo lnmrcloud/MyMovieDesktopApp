@@ -11,6 +11,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    final String _id= ModalRoute.of(context).settings.arguments ?? '';
+
+    print("ESTOY EN HOME CON: "+_id);
+
     peliculasProvider.getPolulares();
 
     return Scaffold(

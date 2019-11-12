@@ -194,9 +194,15 @@ class _LoginPageState extends State<LoginPage> {
     });
     Map respuesta = await _usuarioProvider.login(_email, _password);
     
+    
+
+    final _id= respuesta['id'];
+
+    //print(_id);
+
     if(respuesta['ok']){
       //Acceso a la pagina del home
-      Navigator.pushReplacementNamed(context, 'home');
+      Navigator.pushReplacementNamed(context, 'home',arguments: _id);
     }
     else{
       utils.mostrarAlerta(context, respuesta['message'], 'Usuario o contraseña incorrecto');

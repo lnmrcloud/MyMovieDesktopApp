@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'MyMovieApp Desktop',
-      initialRoute: 'home',
+      initialRoute: 'login',
       routes: {
         'login'   : (BuildContext context)=>LoginPage(),
         'home'    : (BuildContext context) => HomePage(),
