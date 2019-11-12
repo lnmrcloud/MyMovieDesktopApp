@@ -17,6 +17,11 @@ dependencies:
   cupertino_icons: ^0.1.0
   http: any
   flutter_swiper: ^1.1.4
+  image_downloader: ^0.19.1
+  cached_network_image: any
+  flutter_downloader: ^1.3.3
+  dio: ^3.0.4
+  path_provider: ^1.4.0
 
 dev_dependencies:
   flutter_test:
